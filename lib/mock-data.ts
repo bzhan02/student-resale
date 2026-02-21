@@ -282,6 +282,81 @@ export const items: Item[] = [
   },
 ]
 
+export const recommendedItems: Item[] = [
+  {
+    id: "rec-1",
+    title: "《博弈论与经济行为》经典教材",
+    description: "冯·诺依曼和摩根斯坦的经典之作，中文译本。适合经济学、数学专业同学，有少量笔记标注。",
+    price: 15,
+    originalPrice: 55,
+    images: ["/images/items/gametheory-1.jpg"],
+    category: "textbooks",
+    condition: "轻微使用",
+    deliveryMethod: "均可",
+    seller: users[2],
+    location: "New York, NY",
+    createdAt: "2025-02-16",
+    isFavorited: false,
+    viewCount: 87,
+    distance: "1.3km",
+  },
+  {
+    id: "rec-2",
+    title: "Tableau 数据分析与可视化实战指南",
+    description: "全新未拆封，涵盖 Tableau Desktop 和 Tableau Server 实操。适合数据分析、商业智能方向的同学，附赠在线资源。",
+    price: 25,
+    originalPrice: 68,
+    images: ["/images/items/tableau-1.jpg"],
+    category: "textbooks",
+    condition: "全新",
+    deliveryMethod: "均可",
+    seller: users[0],
+    location: "Los Angeles, CA",
+    createdAt: "2025-02-17",
+    isFavorited: false,
+    viewCount: 142,
+    distance: "400m",
+  },
+  {
+    id: "rec-3",
+    title: "高级 Excel 数据透视表速查手册",
+    description: "仅拆封翻阅过一次，内容涵盖数据透视表、VLOOKUP、Power Query 等。小巧便携，考试周必备。",
+    price: 8,
+    originalPrice: 28,
+    images: ["/images/items/excel-1.jpg"],
+    category: "textbooks",
+    condition: "仅拆封",
+    deliveryMethod: "均可",
+    seller: users[5],
+    location: "Boston, MA",
+    createdAt: "2025-02-18",
+    isFavorited: false,
+    viewCount: 63,
+    distance: "2.1km",
+  },
+  {
+    id: "rec-4",
+    title: "绿联 Type-C 扩展坞 7合1",
+    description: "绿联 7合1 USB-C 扩展坞，支持 HDMI 4K、USB 3.0、SD/TF 读卡器、PD充电。MacBook 必备配件，使用半年。",
+    price: 20,
+    originalPrice: 59,
+    images: ["/images/items/usbhub-1.jpg"],
+    category: "electronics",
+    condition: "轻微使用",
+    deliveryMethod: "均可",
+    seller: users[3],
+    location: "New York, NY",
+    createdAt: "2025-02-19",
+    isFavorited: false,
+    viewCount: 201,
+    distance: "950m",
+  },
+]
+
+export function getRecommendedItems(excludeId?: string): Item[] {
+  return recommendedItems.filter((item) => item.id !== excludeId)
+}
+
 export function getItemsByCategory(slug: string): Item[] {
   return items.filter((item) => item.category === slug)
 }

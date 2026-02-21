@@ -14,7 +14,8 @@ import {
   MapPin,
   Truck,
 } from "lucide-react"
-import { getItemById } from "@/lib/mock-data"
+import { getItemById, getRecommendedItems } from "@/lib/mock-data"
+import { ItemCard } from "@/components/item-card"
 import { ConditionBadge } from "@/components/condition-badge"
 import { SellerCard } from "@/components/seller-card"
 import { useAppStore } from "@/lib/store"
@@ -43,6 +44,7 @@ export default function ItemDetailPage({
   }
 
   const favorited = isFavorited(item.id)
+  const recommended = getRecommendedItems(item.id)
   const discount = item.originalPrice
     ? Math.round((1 - item.price / item.originalPrice) * 100)
     : 0
@@ -58,7 +60,7 @@ export default function ItemDetailPage({
   }
 
   return (
-    <div className="pb-24">
+    <div className="pb-32">
       {/* Top navigation */}
       <div className="absolute left-4 top-3 z-30 flex gap-2">
         <Link
@@ -167,6 +169,18 @@ export default function ItemDetailPage({
             卖家信息
           </h2>
           <SellerCard seller={item.seller} location={item.location} />
+        </div>
+      </div>
+
+      {/* Similar items recommendation */}
+      <div className="mt-2 bg-muted/50 px-4 pb-4 pt-5">
+        <h2 className="mb-4 text-base font-semibold text-foreground">
+          猜你喜欢
+        </h2>
+        <div className="grid grid-cols-2 gap-3">
+          {recommended.map((recItem) => (
+            <ItemCard key={recItem.id} item={recItem} />
+          ))}
         </div>
       </div>
 
