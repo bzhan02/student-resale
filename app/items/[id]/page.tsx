@@ -7,6 +7,7 @@ import {
   ArrowLeft,
   Heart,
   MessageCircle,
+  MessageSquare,
   Share2,
   Eye,
   Clock,
@@ -169,34 +170,72 @@ export default function ItemDetailPage({
         </div>
       </div>
 
-      {/* Bottom action bar */}
+      {/* Sticky action bar */}
       <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-card/95 backdrop-blur-md">
-        <div className="mx-auto flex max-w-lg items-center gap-3 px-4 py-3">
-          <button
-            type="button"
-            onClick={() => toggleFavorite(item.id)}
-            className="flex flex-col items-center gap-0.5 px-2"
-          >
-            <Heart
-              className={cn(
-                "h-5 w-5 transition-colors",
-                favorited
-                  ? "fill-destructive text-destructive"
-                  : "text-muted-foreground"
-              )}
-            />
-            <span className="text-[10px] text-muted-foreground">
-              {favorited ? "已收藏" : "收藏"}
-            </span>
-          </button>
-          <Button
-            onClick={handleContact}
-            className="flex-1 gap-2 rounded-full"
-            size="lg"
-          >
-            <MessageCircle className="h-4 w-4" />
-            联系卖家
-          </Button>
+        <div className="mx-auto flex max-w-lg items-center gap-2 px-4 py-2.5">
+          {/* Left side: secondary icon buttons */}
+          <div className="flex shrink-0 items-center gap-1">
+            <button
+              type="button"
+              onClick={handleContact}
+              className="flex flex-col items-center justify-center gap-0.5 rounded-lg px-3 py-1.5 transition-colors hover:bg-accent"
+            >
+              <MessageSquare className="h-5 w-5 text-muted-foreground" />
+              <span className="text-[10px] font-medium text-muted-foreground">留言</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                toggleFavorite(item.id)
+                toast(favorited ? "已取消收藏" : "已收藏", {
+                  description: favorited ? "已从收藏列表移除" : "可在收藏页查看",
+                })
+              }}
+              className="flex flex-col items-center justify-center gap-0.5 rounded-lg px-3 py-1.5 transition-colors hover:bg-accent"
+            >
+              <Heart
+                className={cn(
+                  "h-5 w-5 transition-colors",
+                  favorited
+                    ? "fill-destructive text-destructive"
+                    : "text-muted-foreground"
+                )}
+              />
+              <span className={cn(
+                "text-[10px] font-medium",
+                favorited ? "text-destructive" : "text-muted-foreground"
+              )}>
+                {favorited ? "已收藏" : "收藏"}
+              </span>
+            </button>
+          </div>
+
+          {/* Divider */}
+          <div className="h-8 w-px shrink-0 bg-border" />
+
+          {/* Right side: primary CTA buttons */}
+          <div className="flex flex-1 items-center gap-2">
+            <Button
+              onClick={handleContact}
+              variant="outline"
+              className="flex-1 rounded-full border-primary text-primary hover:bg-primary/5 hover:text-primary"
+              size="lg"
+            >
+              <MessageCircle className="h-4 w-4" />
+              聊一聊
+            </Button>
+            <Button
+              onClick={() => {
+                toast.success("已向卖家发送购买请求", {
+                  description: "卖家确认后将通知你",
+                })
+              }}
+              className="flex-1 rounded-full"
+              size="lg"
+            >
+              我要了
+            </Button>
+          </div>
         </div>
         <div className="h-[env(safe-area-inset-bottom)]" />
       </div>
