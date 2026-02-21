@@ -91,6 +91,7 @@ export const items: Item[] = [
     createdAt: "2025-02-15",
     isFavorited: false,
     viewCount: 234,
+    distance: "500m",
   },
   {
     id: "item-2",
@@ -107,6 +108,7 @@ export const items: Item[] = [
     createdAt: "2025-02-14",
     isFavorited: true,
     viewCount: 567,
+    distance: "1.2km",
   },
   {
     id: "item-3",
@@ -123,6 +125,7 @@ export const items: Item[] = [
     createdAt: "2025-02-13",
     isFavorited: false,
     viewCount: 189,
+    distance: "2.5km",
   },
   {
     id: "item-4",
@@ -139,6 +142,7 @@ export const items: Item[] = [
     createdAt: "2025-02-12",
     isFavorited: false,
     viewCount: 345,
+    distance: "800m",
   },
   {
     id: "item-5",
@@ -155,6 +159,7 @@ export const items: Item[] = [
     createdAt: "2025-02-11",
     isFavorited: false,
     viewCount: 278,
+    distance: "3.1km",
   },
   {
     id: "item-6",
@@ -171,6 +176,7 @@ export const items: Item[] = [
     createdAt: "2025-02-10",
     isFavorited: true,
     viewCount: 412,
+    distance: "5.8km",
   },
   {
     id: "item-7",
@@ -187,6 +193,7 @@ export const items: Item[] = [
     createdAt: "2025-02-09",
     isFavorited: false,
     viewCount: 489,
+    distance: "350m",
   },
   {
     id: "item-8",
@@ -203,6 +210,7 @@ export const items: Item[] = [
     createdAt: "2025-02-08",
     isFavorited: false,
     viewCount: 156,
+    distance: "1.8km",
   },
   {
     id: "item-9",
@@ -219,6 +227,7 @@ export const items: Item[] = [
     createdAt: "2025-02-07",
     isFavorited: false,
     viewCount: 367,
+    distance: "4.2km",
   },
   {
     id: "item-10",
@@ -235,6 +244,7 @@ export const items: Item[] = [
     createdAt: "2025-02-06",
     isFavorited: false,
     viewCount: 198,
+    distance: "2.0km",
   },
   {
     id: "item-11",
@@ -251,6 +261,7 @@ export const items: Item[] = [
     createdAt: "2025-02-05",
     isFavorited: false,
     viewCount: 223,
+    distance: "600m",
   },
   {
     id: "item-12",
@@ -267,6 +278,7 @@ export const items: Item[] = [
     createdAt: "2025-02-04",
     isFavorited: false,
     viewCount: 167,
+    distance: "7.5km",
   },
 ]
 

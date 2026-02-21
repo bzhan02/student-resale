@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { useAppStore } from "@/lib/store"
 
-export function SearchBar() {
+export function SearchBar({ placeholder = "搜索二手好物..." }: { placeholder?: string }) {
   const router = useRouter()
   const { searchQuery, setSearchQuery } = useAppStore()
   const [localQuery, setLocalQuery] = useState(searchQuery)
@@ -25,7 +25,7 @@ export function SearchBar() {
       <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
       <input
         type="search"
-        placeholder="搜索二手好物..."
+        placeholder={placeholder}
         value={localQuery}
         onChange={(e) => setLocalQuery(e.target.value)}
         className="h-9 w-full rounded-full border border-input bg-secondary pl-9 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-ring"

@@ -41,4 +41,5 @@ export interface Item {
   createdAt: string
   isFavorited: boolean
   viewCount: number
+  distance?: string
 }

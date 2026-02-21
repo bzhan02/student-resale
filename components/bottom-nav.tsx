@@ -2,12 +2,12 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Home, Grid3X3, PlusCircle, Heart, User } from "lucide-react"
+import { Home, MapPin, PlusCircle, Heart, User } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navItems = [
   { href: "/", label: "首页", icon: Home },
-  { href: "/categories", label: "分类", icon: Grid3X3 },
+  { href: "/nearby", label: "附近", icon: MapPin },
   { href: "/publish", label: "发布", icon: PlusCircle, isPublish: true },
   { href: "/favorites", label: "收藏", icon: Heart },
   { href: "/profile", label: "我的", icon: User },

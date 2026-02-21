@@ -2,13 +2,13 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Heart } from "lucide-react"
+import { Heart, MapPin } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useAppStore } from "@/lib/store"
 import { ConditionBadge } from "./condition-badge"
 import type { Item } from "@/lib/types"
 
-export function ItemCard({ item }: { item: Item }) {
+export function ItemCard({ item, showDistance = false }: { item: Item; showDistance?: boolean }) {
   const { toggleFavorite, isFavorited } = useAppStore()
   const favorited = isFavorited(item.id)
 
@@ -65,19 +65,27 @@ export function ItemCard({ item }: { item: Item }) {
           </button>
         </div>
         <div className="mt-2 flex items-center gap-1.5">
-          <div className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-[10px] font-bold text-primary">
+          <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[10px] font-bold text-primary">
             {item.seller.name.charAt(0)}
           </div>
-          <span className="text-xs text-muted-foreground">
+          <span className="truncate text-xs text-muted-foreground">
             {item.seller.name}
           </span>
-          <span className="text-xs text-muted-foreground">
+          <span className="shrink-0 text-xs text-muted-foreground">
             {"·"}
           </span>
-          <span className="text-xs text-muted-foreground">
+          <span className="truncate text-xs text-muted-foreground">
             {item.seller.school}
           </span>
         </div>
+        {showDistance && item.distance && (
+          <div className="mt-1.5 flex items-center gap-1">
+            <MapPin className="h-3 w-3 shrink-0 text-gray-400" />
+            <span className="text-xs text-gray-400">
+              {"距你 "}{item.distance}
+            </span>
+          </div>
+        )}
       </div>
     </div>
   )
