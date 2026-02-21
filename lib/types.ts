@@ -1,4 +1,4 @@
-export type ItemCondition = "全新" | "几乎全新" | "轻微使用" | "明显使用"
+export type ItemCondition = "全新" | "仅拆封" | "轻微使用" | "明显使用"
 
 export type DeliveryMethod = "自取" | "邮寄" | "均可"
 

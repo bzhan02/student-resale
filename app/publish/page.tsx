@@ -196,7 +196,7 @@ export default function PublishPage() {
           </Label>
           <div className="mt-2 grid grid-cols-2 gap-2">
             {(
-              ["全新", "几乎全新", "轻微使用", "明显使用"] as ItemCondition[]
+              ["全新", "仅拆封", "轻微使用", "明显使用"] as ItemCondition[]
             ).map((c) => (
               <button
                 key={c}
