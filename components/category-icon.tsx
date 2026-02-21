@@ -4,7 +4,7 @@ import {
   Armchair,
   Shirt,
   Bike,
-  MoreHorizontal,
+  Package,
   type LucideIcon,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -15,7 +15,7 @@ const iconMap: Record<string, LucideIcon> = {
   Armchair,
   Shirt,
   Bike,
-  MoreHorizontal,
+  Package,
 }
 
 interface CategoryIconProps {
@@ -43,7 +43,7 @@ export function CategoryIcon({
   className,
   size = "md",
 }: CategoryIconProps) {
-  const Icon = iconMap[icon] || MoreHorizontal
+  const Icon = iconMap[icon] || Package
 
   return (
     <div className={cn("flex flex-col items-center gap-1.5", className)}>

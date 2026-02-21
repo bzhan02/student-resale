@@ -8,7 +8,6 @@ export type CategorySlug =
   | "furniture"
   | "clothing"
   | "transport"
-  | "other"
 
 export interface Category {
   slug: CategorySlug

@@ -39,12 +39,12 @@ export default function HomePage() {
               <ChevronRight className="h-3.5 w-3.5" />
             </Link>
           </div>
-          <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+          <div className="grid grid-cols-5 gap-2">
             {categories.map((cat) => (
               <Link
                 key={cat.slug}
                 href={`/categories/${cat.slug}`}
-                className="shrink-0"
+                className="flex justify-center"
               >
                 <CategoryIcon icon={cat.icon} name={cat.name} size="md" />
               </Link>

@@ -6,7 +6,6 @@ export const categories: Category[] = [
   { slug: "furniture", name: "家具生活", icon: "Armchair", count: 89 },
   { slug: "clothing", name: "服装配饰", icon: "Shirt", count: 167 },
   { slug: "transport", name: "交通工具", icon: "Bike", count: 45 },
-  { slug: "other", name: "其他", icon: "MoreHorizontal", count: 73 },
 ]
 
 export const users: User[] = [
@@ -240,7 +239,7 @@ export const items: Item[] = [
   {
     id: "item-11",
     title: "Nike Air Force 1 白色 42码",
-    description: "Nike AF1经典白色，42码（US 8.5）。穿了几次，鞋底几乎没有磨损。因为买大了所以出，鞋型很正。",
+    description: "Nike AF1经典白色，42码（US 8.5）。穿了几次，鞋底几乎没有磨损。因���买大了所以出，鞋型很正。",
     price: 55,
     originalPrice: 110,
     images: ["/images/items/sneakers-1.jpg"],
