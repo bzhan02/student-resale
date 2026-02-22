@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo } from "react"
+import { Suspense, useMemo } from "react"
 import { useSearchParams } from "next/navigation"
 import Link from "next/link"
 import { ChevronRight, Sparkles } from "lucide-react"
@@ -11,6 +11,20 @@ import { ItemCard } from "@/components/item-card"
 import { CategoryIcon } from "@/components/category-icon"
 
 export default function HomePage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex items-center justify-center py-20">
+          <div className="h-6 w-6 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+        </div>
+      }
+    >
+      <HomeContent />
+    </Suspense>
+  )
+}
+
+function HomeContent() {
   const searchParams = useSearchParams()
   const { items } = useAppStore()
   const query = searchParams.get("q") || ""
