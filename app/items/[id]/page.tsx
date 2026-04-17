@@ -3,6 +3,7 @@
 import { use } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import {
   ArrowLeft,
   Heart,
@@ -29,6 +30,7 @@ export default function ItemDetailPage({
   params: Promise<{ id: string }>
 }) {
   const { id } = use(params)
+  const router = useRouter()
   const item = getItemById(id)
   const { toggleFavorite, isFavorited } = useAppStore()
 
@@ -50,9 +52,7 @@ export default function ItemDetailPage({
     : 0
 
   function handleContact() {
-    toast.success("已复制卖家联系方式", {
-      description: "请通过微信联系卖家",
-    })
+    router.push(`/chat/${item.id}`)
   }
 
   function handleShare() {

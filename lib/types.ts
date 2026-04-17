@@ -43,3 +43,11 @@ export interface Item {
   viewCount: number
   distance?: string
 }
+
+export interface Message {
+  id: string
+  senderId: string
+  content: string
+  timestamp: string
+  isRead: boolean
+}

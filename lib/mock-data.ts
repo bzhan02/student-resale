@@ -1,4 +1,4 @@
-import type { Category, Item, User } from "./types"
+import type { Category, Item, User, Message } from "./types"
 
 export const categories: Category[] = [
   { slug: "textbooks", name: "教材书籍", icon: "BookOpen", count: 128 },
@@ -376,4 +376,21 @@ export function searchItems(query: string): Item[] {
       item.title.toLowerCase().includes(q) ||
       item.description.toLowerCase().includes(q)
   )
+}
+
+export function getInitialMessages(itemId: string, sellerId: string): Message[] {
+  return [
+    {
+      id: "msg-1",
+      senderId: sellerId,
+      content: "你好！欢迎咨询这件商品，有什么问题可以随时问我~",
+      timestamp: "10:30",
+      isRead: true,
+    },
+  ]
+}
+
+export function getUserById(id: string): User | undefined {
+  if (id === currentUser.id) return currentUser
+  return users.find((u) => u.id === id)
 }
