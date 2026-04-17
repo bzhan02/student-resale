@@ -7,7 +7,7 @@ import type { ReactNode } from "react"
 
 export function AppShell({ children }: { children: ReactNode }) {
   const pathname = usePathname()
-  const isFullscreenPage = pathname.startsWith("/items/") || pathname.startsWith("/chat/")
+  const isFullscreenPage = pathname.startsWith("/items/") || pathname.startsWith("/chat/") || pathname.startsWith("/login") || pathname.startsWith("/register")
 
   return (
     <div className="mx-auto min-h-dvh max-w-lg bg-background">
