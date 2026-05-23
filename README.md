@@ -1,35 +1,69 @@
-# student-resale
+# 闲置帮 · Student Resale
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+专为中国留学生打造的二手物品交易平台。
 
-## Built with v0
+## 技术栈
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+- **框架**: Next.js 16 (App Router)
+- **UI**: shadcn/ui + Tailwind CSS v4
+- **后端**: Supabase (PostgreSQL + Auth + Storage)
+- **语言**: TypeScript
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_KUE0RZYPmXR1Ez12f6ndAAFfzvgD)
+## 快速开始
 
-## Getting Started
-
-First, run the development server:
+### 1. 克隆并安装依赖
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+git clone https://github.com/bzhan02/student-resale.git
+cd student-resale
+pnpm install
+```
+
+### 2. 配置 Supabase
+
+1. 前往 [supabase.com](https://supabase.com) 创建新项目
+2. 在 **SQL Editor** 中执行 `supabase/migrations/001_initial_schema.sql`
+3. 在 **Storage** 中创建名为 `item-images` 的 **Public** Bucket
+4. 复制 `.env.local.example` 为 `.env.local`，填入你的 URL 和 anon key：
+
+```bash
+cp .env.local.example .env.local
+```
+
+### 3. 启动开发服务器
+
+```bash
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+打开 [http://localhost:3000](http://localhost:3000)。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 项目结构
 
-## Learn More
+```
+app/
+  auth/         # 登录/注册页面
+  categories/   # 分类浏览
+  items/[id]/   # 商品详情
+  favorites/    # 收藏夹
+  nearby/       # 附近商品
+  profile/      # 个人主页
+  publish/      # 发布商品
+components/     # 业务组件
+lib/
+  supabase.ts          # 浏览器端 Supabase 客户端
+  supabase-server.ts   # 服务端 Supabase 客户端
+  auth-context.tsx     # 全局认证状态
+  database.types.ts    # 数据库类型定义
+  mock-data.ts         # 开发用 mock 数据（将逐步替换）
+supabase/
+  migrations/   # 数据库迁移 SQL
+```
 
-To learn more, take a look at the following resources:
+## 待完善功能
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
-
-<a href="https://v0.app/chat/api/kiro/clone/bzhan02/student-resale" alt="Open in Kiro"><img src="https://pdgvvgmkdvyeydso.public.blob.vercel-storage.com/open%20in%20kiro.svg?sanitize=true" /></a>
+- [ ] 商品详情页接入真实数据库
+- [ ] 收藏功能持久化
+- [ ] 用户个人主页
+- [ ] 买卖双方站内消息
+- [ ] 支付流程（Stripe）
